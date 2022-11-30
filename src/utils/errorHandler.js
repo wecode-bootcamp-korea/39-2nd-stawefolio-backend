@@ -3,7 +3,7 @@ const globalErrorHandler = (err, req, res, next) => {
     res.status(err.statusCode || 500).json({ message: err.message });
     return;
   }
-  res.status(500).json({ messaga: 'Internal Server Error' });
+  res.status(500).json({ message: 'Internal Server Error' });
 };
 
 function asyncWrap(asyncController) {
