@@ -1,9 +1,11 @@
 const globalErrorHandler = (err, req, res, next) => {
+  console.error(err.stack);
+
   if (err.message) {
     res.status(err.statusCode || 500).json({ message: err.message });
     return;
   }
-  res.status(500).json({ messaga: 'Internal Server Error' });
+  res.status(500).json({ message: 'Internal Server Error' });
 };
 
 function asyncWrap(asyncController) {
@@ -16,4 +18,10 @@ function asyncWrap(asyncController) {
   };
 }
 
-module.exports = { globalErrorHandler, asyncWrap };
+const customError = (message, statusCode) => {
+  const err = new Error(message);
+  err.statusCode = statusCode;
+  throw err;
+};
+
+module.exports = { globalErrorHandler, asyncWrap, customError };
