@@ -10,11 +10,13 @@ const auth = asyncWrap(async (req, res) => {
     throw err;
   }
 
-  const kakaoAccessToken = await authService.getKakaoAccessToken(
+  const { data: kakaoAccessToken } = await authService.getKakaoAccessToken(
     kakaoAuthorizationCode
   );
 
-  const kakaoUserInfo = await authService.getKakaoUserInfo(kakaoAccessToken);
+  const { data: kakaoUserInfo } = await authService.getKakaoUserInfo(
+    kakaoAccessToken
+  );
 
   const jwtToken = await authService.auth(
     kakaoUserInfo.sub,
