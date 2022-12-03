@@ -1,5 +1,6 @@
 const { customError } = require('../utils/errorHandler');
 const { appDataSource } = require('./dataSource');
+const { queryBuilder } = require('./queryBuilder');
 
 const getProductInfo = async (productId) => {
   try {
@@ -76,4 +77,64 @@ const getProductInfo = async (productId) => {
   }
 };
 
-module.exports = { getProductInfo };
+const getProductsList = async (
+  keyword,
+  checkInDate,
+  checkOutDate,
+  region,
+  numberOfGuests,
+  priceMin,
+  priceMax,
+  theme,
+  type,
+  orderBy
+) => {
+  try {
+    const { whereQuery, orderByQuery } = await queryBuilder(
+      keyword,
+      checkInDate,
+      checkOutDate,
+      region,
+      numberOfGuests,
+      priceMin,
+      priceMax,
+      theme,
+      type,
+      orderBy
+    );
+
+    return await appDataSource.query(
+      `
+      SELECT
+        p.id id,
+        p.name name,
+        m.name TYPE,
+        p.regions region,
+        po.number_of_guests numberOfGuests,
+        po.price price,
+        p.thumbnail_image_url thumbnailImage
+      FROM
+        products p
+        LEFT JOIN main_categories_sub_categories ms ON p.category_id = ms.id
+        LEFT JOIN main_categories m ON ms.main_category_id = m.id
+        LEFT JOIN sub_categories s ON ms.sub_category_id = s.id
+        LEFT JOIN product_options po ON po.product_id = p.id
+        LEFT JOIN available_product_options apo ON apo.product_option_id = po.id
+      ${whereQuery}
+      GROUP BY
+        p.id,
+        p.name,
+        m.name,
+        p.regions,
+        po.number_of_guests,
+        po.price,
+        p.thumbnail_image_url
+      ${orderByQuery}
+    `
+    );
+  } catch (error) {
+    customError('The requested information wrong', 404);
+  }
+};
+
+module.exports = { getProductsList, getProductInfo };
