@@ -1,6 +1,9 @@
 const routes = require('express').Router();
-const { authRouter } = require('./authRouter');
+
+const { bookingRouter } = require('./bookingListRouter');
+const { authRouter } = require('./authRouter')
 
 routes.use('/auth', authRouter);
+routes.use('/booking', bookingRouter);
 
 module.exports = { routes };
