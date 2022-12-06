@@ -36,10 +36,12 @@ describe('Log in Test', () => {
       },
     });
 
-    await request(app).get('/auth?kakaoAuthorizationCode=codewhy').expect(200);
+    await request(app)
+      .get('/auth/login/kakao?authorizationCode=codewhy')
+      .expect(200);
   });
 
   test('LOGIN FAILED : No Authorization Code', async () => {
-    await request(app).get('/auth?kakaoAuthorizationCode=').expect(400);
+    await request(app).get('/authlogin/kakao?authorizationCode=').expect(404);
   });
 });
