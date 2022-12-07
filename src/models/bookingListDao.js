@@ -2,20 +2,22 @@ const { appDataSource } = require('./dataSource');
 
 const getBookingList = async (orderStatus, userId) => {
     try {
-        return await appDataSource.query(
+        const result = await appDataSource.query(
         `SELECT
-            u.kakao_id kakaoId,
             u.name name,
-            o.id id,
-            p.name title,
-            mc.name type,
-            p.regions area,
-            po.number_of_guests numberOfGuests,
-            po.price price,
-            o.check_in_date checkInDate,
-            o.check_out_date checkOutDate,
-            p.thumbnail_image_url src,
-            os.id used
+        JSON_ARRAYAGG(
+        JSON_OBJECT(
+            "orderid", o.id,
+            "title", p.name,
+            "type", mc.name,
+            "area", p.regions,
+            "numberOfGuests", po.number_of_guests,
+            "price", po.price,
+            "checkInDate", o.check_in_date,
+            "checkOutDate", o.check_out_date,
+            "src", p.thumbnail_image_url,
+            "used", os.id 
+        )) reservation
         FROM
             orders o
         INNER JOIN
@@ -36,6 +38,11 @@ const getBookingList = async (orderStatus, userId) => {
             user_id = ? AND order_status_id = ?
         `, [ userId, orderStatus ]
         );
+
+        result[0].reservation.map(item => item.checkInDate = item.checkInDate.slice(0,10))
+        result[0].reservation.map(item => item.checkOutDate = item.checkOutDate.slice(0,10))
+
+        return result
     } catch {
         const err = new Error('unable to verify user');
         err.statusCode = 401;
