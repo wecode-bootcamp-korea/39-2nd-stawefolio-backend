@@ -1,10 +1,6 @@
 const { appDataSource } = require('./dataSource');
 
 const postBooking = async (orderNumber, productOptionId, numberOfUser, checkIn, checkOut, price, userId, orderStatus) => {
-<<<<<<< Updated upstream
-=======
-    console.log(orderNumber, productOptionId, numberOfUser, checkIn, checkOut, price, userId, orderStatus);
->>>>>>> Stashed changes
     try {
         return await appDataSource.query(
         `INSERT INTO

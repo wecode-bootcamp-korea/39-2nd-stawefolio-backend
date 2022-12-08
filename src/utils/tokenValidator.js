@@ -4,9 +4,7 @@ const { customError } = require('../utils/errorHandler');
 const {asyncWrap} = require('./errorHandler')
 
 const tokenValidator = async (req, res, next) => {
-  console.log(req.header)
   const jwtToken = req.header('Authorization');
-  console.log(jwtToken);
   const payload = jwt.verify(jwtToken.substring(1,jwtToken.length-1), process.env.JWT_SECRET_KEY);
   const user = await authDao.getUserByKakaoId(payload.kakaoId);
 
