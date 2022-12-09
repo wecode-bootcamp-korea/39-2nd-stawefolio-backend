@@ -39,8 +39,8 @@ const getBookingList = async (orderStatus, userId) => {
         `, [ userId, orderStatus ]
         );
 
-        result[0].reservation.map(item => item.checkInDate = item.checkInDate.slice(0,10))
-        result[0].reservation.map(item => item.checkOutDate = item.checkOutDate.slice(0,10))
+        result[0].reservation?.map(item => item.checkInDate = item.checkInDate.slice(0,10))
+        result[0].reservation?.map(item => item.checkOutDate = item.checkOutDate.slice(0,10))
 
         return result
     } catch {
