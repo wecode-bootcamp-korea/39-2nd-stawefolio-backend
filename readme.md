@@ -1,47 +1,29 @@
 # 팀명: Naweke
 
-- 프로젝트 사이트 : **Nike**
-- 고객 라이프스타일에 맞는 UX 중심의 Naweke 편집숍
-- 운동을 좋아하는 사람들을 위한 Naweke 상품 제안
+- 프로젝트 사이트 : **stawefolio**
+- 머물고싶은 공간을 큐레이팅하는 스테이폴리오 웹사이트 모델링한 프로젝트
+- 고객들의 감성 니즈를 충족하는 숙소 제안 및 제공
 
 ## 프로젝트 선정 이유
 
-- 익숙한 브랜드, 서비스였기 때문에 도메인의 비즈니스를 이해하기 수월했다.
-- 웹사이트 또한 기본적이면서 다양한 기능들을 담고 있었기 때문에 학습한 내용을 적용하기 적합했다.
+- 옵션별 숙소 필터링으로 다양한 데이터베이스 활용 경험
+- SNS 로그인 및 네이버지도 API 활용 경험
 
 ## 구현사항
 
 ### [DB modeling] - All
 
-### [Auth]
+### [Booking]
 
-- Signup API **(POST)** - 명석
-- Login API **(POST)** - 명석
+- Booking API **(POST)** - 은영
 
-### [Products]
+### [BookingList]
 
-- Products List API **(GET)** - 한솔
-- Product detail information API **(GET)** - 명석
-
-### [Carts]
-
-- Carts API **(POST, GET, PATCH, DELETE)** - 송현
-
-### [Order]
-
-- Products order API **(POST, GET)** - 명석
-
-### [Reviews]
-
-- Reviews API **(POST/GET/PATCH/DELETE)** - 한솔
-
-### [Likes]
-
-- Likes **(POST,DELETE)** - 한솔
+- Booking List API **(GET)** - 은영
 
 ## 개발 기간
 
-- 2022.11.14 ~ 11.25
+- 2022.11.28 ~ 12.09
 
 ## 참여 개발자
 
