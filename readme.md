@@ -1,46 +1,65 @@
-# 팀명: Stawefolio
+# Stawefolio
 
 - 프로젝트 사이트 : **Stayfolio**
-- 머무름만으로 여행이 되는 공간
+- 머물고싶은 공간을 큐레이팅하는 스테이폴리오 웹사이트 모델링한 프로젝트
+- 고객들의 감성 니즈를 충족하는 숙소 제안 및 제공
 - 숙소에서 감성을 더해줄 음악 추천
 
 ## 프로젝트 선정 이유
 
-- 자주 이용하는 숙박 서비스였기 때문에 도메인의 비즈니스를 이해하기 수월했다.
-- 웹사이트 또한 기본적이면서 다양한 기능들을 담고 있었기 때문에 학습한 내용을 적용하기 적합했다.
+- 옵션별 숙소 필터링으로 다양한 데이터베이스 활용 경험
+- SNS 로그인 및 네이버지도 API 활용 경험
 
-## 구현사항
+=======
+
+## 참여 개발자
+
+### Backend Developers
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://github.com/myeongseoklee"><img src="https://avatars.githubusercontent.com/u/109528794?v=4" width="100px;" alt=""/><br /><sub><b>이명석</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/exnyxxng"><img src="https://avatars.githubusercontent.com/u/107943132?v=4" width="100px;" alt=""/><br /><sub><b>이은영</b></sub></a><br /></td>
+     <tr/>
+  </tbody>
+</table>
+
+### Frontend Developers
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://github.com/sujeong-dev"><img src="https://avatars.githubusercontent.com/u/112826154?v=4" width="100px;" alt=""/><br /><sub><b>구수정</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/Sing-DongKi"><img src="https://avatars.githubusercontent.com/u/112953746?v=4" width="100px;" alt=""/><br /><sub><b>김동기</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/Dave-ahn"><img src="https://avatars.githubusercontent.com/u/110475834?v=4" width="100px;" alt=""/><br /><sub><b>안상준</b></sub></a><br /></td>
+     <tr/>
+  </tbody>
+</table>
+
+## Backend 구현사항
 
 ### [DB modeling] - All
 
 ### [Auth]
 
-- Sosial Login(Kakao) API **(POST)** - 명석
+- Sosial Login(Kakao) API **(GET)** - 명석
 
 ### [Products]
 
 - Products List API **(GET)** - 명석
 - Product detail information API **(GET)** - 명석
 
-### [Order]
+### [Booking]
 
-- Products order API **(POST, GET)** - 명석
+- Booking API **(POST)** - 은영
+- Booking List API **(GET)** - 은영
+
+[[Frontend github]](https://github.com/wecode-bootcamp-korea/39-2nd-stawefolio-frontend)
 
 ## 개발 기간
 
 - 2022.11.18 ~ 12.09
-
-## 참여 개발자
-
-### Backend Developers
-
-#### - 이은영 : https://github.com/exnyxxng
-
-#### - 이명석 : https://github.com/myeongseoklee
-
-### Frontend Developers
-
-[[Frontend github]](https://github.com/wecode-bootcamp-korea/39-2st-stawefolio-frontend)
 
 ## Project Archive
 
