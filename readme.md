@@ -41,7 +41,7 @@
 
 ### [Auth]
 
-- Sosial Login(Kakao) API **(GET)** - 명석
+- Social Login(Kakao) API **(GET)** - 명석
 
 ### [Products]
 
